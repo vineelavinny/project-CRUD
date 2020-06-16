@@ -1,5 +1,5 @@
 <?php
-$conn=mysqli_connect('localhost','root','','form');
+require('config.php');
 if(mysqli_connect_errno()){
     echo 'error';
 }
