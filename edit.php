@@ -2,11 +2,15 @@
 require('config.php');
 if(isset($_POST['submit'])){
     $id=$_POST['id'];
-    $name=$_POST['name'];
-    $email=$_POST['email'];
-    $phonenumber=$_POST['phonenumber'];
-    $branch=$_POST['branch'];
-    $query="UPDATE form SET name='$name',Email='$email',Mobile='$phonenumber',branch='$branch' where id=$id";
+    $oldegister=new register;
+    $oldregister->name=$_POST['name'];
+    $oldregister->email=$_POST['email'];
+    $oldregister->phonenumber=$_POST['phonenumber'];
+    $oldregister->branch=$_POST['branch'];
+    $query="UPDATE form SET name='$oldregister->name',
+                            Email='$oldregister->email',
+                            Mobile='$oldregister->phonenumber',
+                            branch='$oldregister->branch' where id=$id";
     if(mysqli_query($conn,$query)){
             header('LOCATION: index.php');  
         }
